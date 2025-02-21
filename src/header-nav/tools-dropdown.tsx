@@ -46,6 +46,20 @@ export const ToolsDropdown = () => {
 					</Menu.Item>
 					<Menu.Item>
 						{({ active }) => (
+							<Link to="/media-tools">
+								<span
+									className={classNames(
+										active ? "bg-gray-100" : "",
+										"block px-4 py-2 text-sm text-gray-100 hover:bg-gray-700",
+									)}
+								>
+									Media Tools
+								</span>
+							</Link>
+						)}
+					</Menu.Item>
+					<Menu.Item>
+						{({ active }) => (
 							<Link to="/player-compare">
 								<span
 									className={classNames(

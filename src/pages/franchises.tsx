@@ -73,6 +73,8 @@ export function Franchises() {
 					))}
 				</React.Suspense>
 			</div>
+
+			
 		</Container>
 	);
 }

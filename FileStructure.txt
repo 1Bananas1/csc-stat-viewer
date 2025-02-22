@@ -1,0 +1,430 @@
+Folder PATH listing for volume 4TB Monster
+Volume serial number is 9690-0AF5
+E:.
+�   .env
+�   .gitignore
+�   .prettierignore
+�   eslint.config.mjs.notCompatYet
+�   extendedStats.json
+�   FileStructure.txt
+�   index.html
+�   package-lock.json
+�   package.json
+�   post-build.mjs
+�   postcss.config.js
+�   prettier.config.mjs
+�   README.md
+�   tailwind.config.js
+�   tailwind.config.js.bakl
+�   tsconfig.json
+�   vite-env.d.ts
+�   vite.config.mts
+�   
++---.github
+�   +---workflows
+�           buildandpublish.yaml
+�           
++---src
+    �   App.test.js
+    �   App.tsx
+    �   dataConfig.tsx
+    �   DataContext.tsx
+    �   index.css
+    �   index.jsx
+    �   NotificationsContext.tsx
+    �   reportWebVitals.js
+    �   Router.tsx
+    �   setupTests.js
+    �   svgs.tsx
+    �   
+    +---assets
+    �   +---images
+    �   �   �   chicken.png
+    �   �   �   
+    �   �   +---cs2icons
+    �   �   �       airborne.png
+    �   �   �       ak47.png
+    �   �   �       aug.png
+    �   �   �       autosniper.png
+    �   �   �       awp.png
+    �   �   �       blindKill.png
+    �   �   �       cz.png
+    �   �   �       deagle.png
+    �   �   �       duelies.png
+    �   �   �       famas.png
+    �   �   �       fiveseven.png
+    �   �   �       flashassist.png
+    �   �   �       galil.png
+    �   �   �       glock.png
+    �   �   �       HE.png
+    �   �   �       headshot.png
+    �   �   �       knife.png
+    �   �   �       krieg.png
+    �   �   �       m249.png
+    �   �   �       m4a1.png
+    �   �   �       m4a4.png
+    �   �   �       mac10.png
+    �   �   �       mag7.png
+    �   �   �       molly.png
+    �   �   �       mp5.png
+    �   �   �       mp7.png
+    �   �   �       mp9.png
+    �   �   �       negev.png
+    �   �   �       noScope.png
+    �   �   �       nova.png
+    �   �   �       p2000.png
+    �   �   �       p250.png
+    �   �   �       p90.png
+    �   �   �       ppbizon.png
+    �   �   �       r8revolver.png
+    �   �   �       sawed-off.png
+    �   �   �       scout.png
+    �   �   �       smokeKill.png
+    �   �   �       suicide.png
+    �   �   �       tec9.png
+    �   �   �       ump.png
+    �   �   �       usp-s.png
+    �   �   �       wallBang.png
+    �   �   �       xm1014.png
+    �   �   �       zues.png
+    �   �   �       
+    �   �   +---faceitRanks
+    �   �   �       faceit0.svg
+    �   �   �       faceit1.svg
+    �   �   �       faceit10.svg
+    �   �   �       faceit11.png
+    �   �   �       faceit11.svg
+    �   �   �       faceit2.svg
+    �   �   �       faceit3.svg
+    �   �   �       faceit4.svg
+    �   �   �       faceit5.svg
+    �   �   �       faceit6.svg
+    �   �   �       faceit7.svg
+    �   �   �       faceit8.svg
+    �   �   �       faceit9.svg
+    �   �   �       
+    �   �   +---franchise
+    �   �   �       ABW.png
+    �   �   �       ACA.png
+    �   �   �       AG.png
+    �   �   �       AP.png
+    �   �   �       ATL-OLD.png
+    �   �   �       ATL.png
+    �   �   �       ATO.png
+    �   �   �       AVI.png
+    �   �   �       BS-OLD.png
+    �   �   �       BS.png
+    �   �   �       COW-OLD.png
+    �   �   �       COW.png
+    �   �   �       dB-OLD.png
+    �   �   �       dB.png
+    �   �   �       DRG.png
+    �   �   �       FRG-OLD.png
+    �   �   �       FRG.png
+    �   �   �       GAS.png
+    �   �   �       GRN.png
+    �   �   �       H4K.png
+    �   �   �       H4K_OLD.png
+    �   �   �       HEL.png
+    �   �   �       HG-OLD-preS14.png
+    �   �   �       HG-OLD-S14.png
+    �   �   �       HG.png
+    �   �   �       HR.png
+    �   �   �       LEC.png
+    �   �   �       NAN-OLD.png
+    �   �   �       NAN.png
+    �   �   �       OS.png
+    �   �   �       PA.png
+    �   �   �       SAV-OLD.png
+    �   �   �       SAV.png
+    �   �   �       TSC.png
+    �   �   �       UPS.png
+    �   �   �       WET.old.png
+    �   �   �       WET.png
+    �   �   �       YC.png
+    �   �   �       
+    �   �   +---hitboxes
+    �   �   �       hibox-stomach.png
+    �   �   �       hitbox-chest.png
+    �   �   �       hitbox-head.png
+    �   �   �       hitbox-leftarm.png
+    �   �   �       hitbox-leftleg.png
+    �   �   �       hitbox-rightarm.png
+    �   �   �       hitbox-rightleg.png
+    �   �   �       hitbox-stomach.png
+    �   �   �       tpose.png
+    �   �   �       
+    �   �   +---maps
+    �   �   �       De_ancient.png
+    �   �   �       De_anubis.png
+    �   �   �       De_dust2.png
+    �   �   �       De_inferno.png
+    �   �   �       De_mirage.png
+    �   �   �       De_nuke.png
+    �   �   �       De_overpass.png
+    �   �   �       De_train.png
+    �   �   �       De_vertigo.png
+    �   �   �       forfeitWin.png
+    �   �   �       
+    �   �   +---placeholders
+    �   �           csc-logo.png
+    �   �           placeholder.webp
+    �   �           
+    �   +---svgs
+    �           CSCTopInCategory.svg
+    �           downarrow.svg
+    �           grenade-svgrepo-com.svg
+    �           QuestionMark.svg
+    �           rifler.svg
+    �           sniper-svgrepo-com.svg
+    �           tent-svgrepo-com.svg
+    �           TierTopInCategory.svg
+    �           uparrow.svg
+    �           updownarrow.svg
+    �           
+    +---common
+    �   +---components
+    �   �   �   button.tsx
+    �   �   �   card.tsx
+    �   �   �   compareLink.tsx
+    �   �   �   container.tsx
+    �   �   �   errorBoundary.tsx
+    �   �   �   externalPlayerLinks.tsx
+    �   �   �   faceitRank.tsx
+    �   �   �   helpPopover.tsx
+    �   �   �   inputWithFloatingLabel.tsx
+    �   �   �   killAssetDeathPie.tsx
+    �   �   �   loading.tsx
+    �   �   �   mmr.tsx
+    �   �   �   overlay.tsx
+    �   �   �   pill.tsx
+    �   �   �   playerGauge.tsx
+    �   �   �   playerRatingGraph.tsx
+    �   �   �   progress.tsx
+    �   �   �   radioGroup.tsx
+    �   �   �   roleRadar.tsx
+    �   �   �   scrollToHashElement.tsx
+    �   �   �   select.tsx
+    �   �   �   teamSideRatingPie.tsx
+    �   �   �   tiptap.scss
+    �   �   �   tiptap.tsx
+    �   �   �   toggle.tsx
+    �   �   �   tooltip.tsx
+    �   �   �   
+    �   �   +---charts
+    �   �   �       boxplot.tsx
+    �   �   �       gauge.tsx
+    �   �   �       pie.tsx
+    �   �   �       radar.tsx
+    �   �   �       scatter.tsx
+    �   �   �       
+    �   �   +---containers
+    �   �   �       ChartButtonBoundingBox.tsx
+    �   �   �       ChartButtonBox.tsx
+    �   �   �       Expandable.tsx
+    �   �   �       index.ts
+    �   �   �       SelectedChartButton.tsx
+    �   �   �       StandardBackgroundPage.tsx
+    �   �   �       StandardBoxRow.tsx
+    �   �   �       StandardContentBox.tsx
+    �   �   �       StandardContentThinBox.tsx
+    �   �   �       UnselectedChartButton.tsx
+    �   �   �       
+    �   �   +---filters
+    �   �   �       playerRoleFilter.tsx
+    �   �   �       playerSearchFilter.tsx
+    �   �   �       playerTiersFilter.tsx
+    �   �   �       playerTypeFilter.tsx
+    �   �   �       
+    �   �   +---forms
+    �   �           field.tsx
+    �   �           fieldset.tsx
+    �   �           index.ts
+    �   �           input.tsx
+    �   �           
+    �   +---constants
+    �   �       franchiseMetadata.ts
+    �   �       tiers.ts
+    �   �       
+    �   +---hooks
+    �   �       debounce.ts
+    �   �       enableFeature.ts
+    �   �       inputEvent.ts
+    �   �       konami.ts
+    �   �       localStorage.ts
+    �   �       queryString.ts
+    �   �       window.ts
+    �   �       
+    �   +---images
+    �   �       cs2icons.ts
+    �   �       faceitRanks.ts
+    �   �       franchise.ts
+    �   �       maps.ts
+    �   �       placeholder.ts
+    �   �       
+    �   +---services
+    �   �       google-analytics.ts
+    �   �       
+    �   +---utils
+    �           awards-utils.ts
+    �           franchise-utils.ts
+    �           match-utils.ts
+    �           object-utils.ts
+    �           player-utils.ts
+    �           select-utils.ts
+    �           string-utils.ts
+    �           tooltip-utils.tsx
+    �           user-utils.ts
+    �           
+    +---dao
+    �   �   analytikill.ts
+    �   �   cscMatchesGraphQLDao.ts
+    �   �   cscPlayerGraphQLDao.ts
+    �   �   cscPlayerMatchHistoryGraph.ts
+    �   �   cscProfileTrendGraph.ts
+    �   �   cscSeasonAndTiersDao.ts
+    �   �   cscSeasonDivisionsByTierDao.ts
+    �   �   cscSeasonMatches.ts
+    �   �   cscStatsGraphQLDao.ts
+    �   �   cscStatsPlayerSummary.ts
+    �   �   faceitApiDao.ts
+    �   �   franchisesGraphQLDao.ts
+    �   �   githubRepo.ts
+    �   �   httpClients.ts
+    �   �   oAuth.ts
+    �   �   seasonPlayerStatsDao.ts
+    �   �   StatApiDao.ts
+    �   �   steamApiDao.ts
+    �   �   
+    �   +---graphql
+    �           franchises.query.graphql
+    �           matches.query.graphql
+    �           players.query.graphql
+    �           seasons.query.graphql
+    �           teams.query.graphql
+    �           tiers.query.graphql
+    �           
+    +---header-nav
+    �       header.tsx
+    �       notifications.tsx
+    �       profile.tsx
+    �       seasonAndMatchTypeSelector.tsx
+    �       tools-dropdown.tsx
+    �       
+    +---models
+    �       contract-types.ts
+    �       csc-player-match-history-types.ts
+    �       csc-player-types.ts
+    �       csc-season-tiers-types.ts
+    �       csc-stats-types.ts
+    �       cscSeasonDivisionByTier.ts
+    �       discord-users.ts
+    �       extended-stats.ts
+    �       faceit-api-types.ts
+    �       franchise-types.ts
+    �       github-branch-request-types.ts
+    �       index.ts
+    �       match-scoreboard-types.ts
+    �       matches-types.ts
+    �       player-stats.ts
+    �       player.ts
+    �       profile-types.ts
+    �       twitch-types.ts
+    �       
+    +---pages
+        �   about.tsx
+        �   admin.tsx
+        �   appLoadingError.tsx
+        �   articles.tsx
+        �   cb.tsx
+        �   charts.tsx
+        �   export.tsx
+        �   franchise.tsx
+        �   franchiseManagement.tsx
+        �   franchises.tsx
+        �   index.ts
+        �   leaderboards.tsx
+        �   mediaTools.tsx
+        �   player.tsx
+        �   playerComparison.tsx
+        �   players.tsx
+        �   playground.tsx
+        �   profile.tsx
+        �   servers.tsx
+        �   team.tsx
+        �   teamStandings.tsx
+        �   
+        +---articles
+        �       create.tsx
+        �       post.tsx
+        �       posts.tsx
+        �       routes.tsx
+        �       submitted.tsx
+        �       
+        +---charts
+        �       cartesianCompare.tsx
+        �       correlationByTier.tsx
+        �       distributionCurve.tsx
+        �       playerCompareRadar.tsx
+        �       rolePie.tsx
+        �       rolesByTier.tsx
+        �       statBarByTiers.tsx
+        �       
+        +---dashboard
+        �       footer.tsx
+        �       
+        +---franchise
+        �       player-row.tsx
+        �       
+        +---franchises
+        �       franchise.tsx
+        �       franchiseManagementNamePlate.tsx
+        �       teams.tsx
+        �       
+        +---leaderboards
+        �       chickens.tsx
+        �       general.tsx
+        �       stats.tsx
+        �       weapons.tsx
+        �       
+        +---player
+        �       extendedMatchHistoryClutches.tsx
+        �       extendedMatchHistoryKillFeed.tsx
+        �       extendedMatchHistoryMatchup.tsx
+        �       extendedMatchHistoryTeamEcon.tsx
+        �       extendedMatchHistoryTrades.tsx
+        �       freeAgentPlayerLeague.tsx
+        �       grid-container.tsx
+        �       grid-data.ts
+        �       hitbox.tsx
+        �       matchHistory.tsx
+        �       percentile-bar.tsx
+        �       percentiles.ts
+        �       player-navigator.tsx
+        �       playerAwards.tsx
+        �       playerPercentilesOne.tsx
+        �       playerPercentilesTwo.tsx
+        �       playerRatings.tsx
+        �       profile.tsx
+        �       rating-bar.tsx
+        �       reputation.tsx
+        �       weapons-extended.tsx
+        �       
+        +---playerComparison
+        �       comparisonTable.tsx
+        �       
+        +---players
+        �       player-cards.tsx
+        �       player-list.tsx
+        �       player-table.tsx
+        �       
+        +---profile
+        �       socialFields.tsx
+        �       
+        +---team
+                mapBans.tsx
+                mapRecord.tsx
+                matches.tsx
+                playerCards.tsx
+                teamPercentiles.tsx
+                

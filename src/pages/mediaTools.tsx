@@ -67,25 +67,31 @@ export function MediaTools() {
 				<h2 className="text-3xl font-bold sm:text-4xl">Media Tools</h2>
 				<p className="mt-4 text-gray-300">Match Selector</p>
 			</div>
+
             <div className="flex flex-row flex-wrap gap-4 m-auto text-xs my-3 text-center">
-                            <div className="grow rounded-lg py-2">
-                                <div className={`font-bold`}>Franchises</div>
-                                <div>{franchises.length}</div>
+                <div className="grow rounded-lg py-2">
+                    <div className={`font-bold`}>Franchises</div>
+                    <div>{franchises.length}</div>
+                </div>
+
+                {Object.keys(teamCounts)
+                    .reverse()
+                    .map(key => (
+                        <div className={`grow cursor-pointer rounded-lg py-2 ${key === selectedTier ? "bg-gray-700" : ""}`} onClick={() => setSelectedTier(key === selectedTier ? null : key)}>
+                            <div className={`font-bold capitalize text-${tiers?.find(item => item.tier.name.toLowerCase() === key)?.tier.color ?? ""}-400`}>
+                                            {key}
                             </div>
 
-                            {Object.keys(teamCounts)
-                                .reverse()
-                                .map(key => (
-                                    <div className={`grow cursor-pointer rounded-lg py-2 ${key === selectedTier ? "bg-gray-700" : ""}`} onClick={() => setSelectedTier(key === selectedTier ? null : key)}>
-                                        <div
-                                            className={`font-bold capitalize text-${tiers?.find(item => item.tier.name.toLowerCase() === key)?.tier.color ?? ""}-400`}
-                                        >
-                                            {key}
-                                        </div>
-                                        <div>{(teamCounts[key as keyof typeof teamCounts] ?? 0) / 2} Matches</div>
-                                    </div>
-                            ))}
+                            <div>{(teamCounts[key as keyof typeof teamCounts] ?? 0) / 2} Matches</div>
+
                         </div>
+                        ))}
+            </div>
+
+
+            <div className="flex flex-col gap-2">
+                        <p>Hi {selectedTier}</p>
+            </div>
 
 
                         

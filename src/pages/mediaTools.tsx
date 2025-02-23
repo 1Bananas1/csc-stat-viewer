@@ -1,22 +1,10 @@
 import * as React from "react";
 import { Container } from "../common/components/container";
-import * as Containers from "../common/components/containers";
 import { useDataContext } from "../DataContext";
-import { shortTeamNameTranslator } from "../common/utils/player-utils";
+import { useQuery } from "@tanstack/react-query";
 import { Loading } from "../common/components/loading";
-import Select, { MultiValue } from "react-select";
-import { selectClassNames } from "../common/utils/select-utils";
-import { Player } from "../models/player";
-import {TeamPercentiles} from "./team/teamPercentiles";
-import {Exandable} from "../common/components/containers/Expandable";
-import {SetStateAction} from "react";
-import { Link, useRoute } from "wouter";
-import { PlayerRow } from "./franchise/player-row";
-import { franchiseImages } from "../common/images/franchise";
-import { FranchiseManagementNamePlate } from "./franchises/franchiseManagementNamePlate";
-import { FaExternalLinkAlt } from "react-icons/fa";
-
-
+import { Match } from "../models/upComingMatch";
+import { Team } from "../models/upComingMatch";
 const FranchisesFranchise = React.lazy(() =>import('./franchises/franchise').then(module => ({default: module.FranchisesFranchise})));
 
 const tierCssColors = {
@@ -28,6 +16,52 @@ const tierCssColors = {
 	Premier: "text-purple-400",
 }
 
+type Props = {
+    match: Match;
+    team?: Team;
+};
+
+const GET_MATCHES_QUERY = `
+query Matches($season: Int!, $tier: String) {
+  matches(season: $season, tier: $tier, afterToday: true) {
+    id
+    scheduledDate
+    matchDay {
+      number
+    }
+    home {
+      name
+      franchise {
+        name
+        prefix
+      }
+    }
+    away {
+      name
+      franchise {
+        name
+        prefix
+      }
+    }
+    completedAt
+  }
+}`
+
+
+export function CurrentMatchCards({match, team}: Props) {
+    const matchDate = {
+        month: new Date(match.scheduledDate).getMonth() + 1,
+        day: new Date(match.scheduledDate).getDate(),
+        hour: new Date(match.scheduledDate).getHours() % 12,
+    };
+    const isHomeTeam = match.home.name === team?.name;
+
+    return (
+        <div key={match.id}>
+            <p>{match.matchDay.number} : {match.home.name} vs {match.away.name}</p>
+        </div>
+    )
+}
 
 export function MediaTools() {
     const { franchises = [], tiers, currentSeason, loading } = useDataContext();
@@ -37,32 +71,55 @@ export function MediaTools() {
         setFetchMatches(true);
     };
 
+    const getMatches = async (season: number, tier : string) => {
+        await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate a delay
+        const response = await fetch("https://core.csconfederation.com/graphql", {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                query: GET_MATCHES_QUERY,
+                variables: { season, tier },
+            }),
+        });   
+        const result = await response.json();
+        return result.data.matches;
+    }
+
+    const {data = [], isLoading, refetch } = useQuery({
+        queryKey: ["matches", currentSeason, selectedTier],
+        queryFn: () => getMatches(currentSeason, selectedTier ?? ""),
+    })
+
     const teamCounts = {
-        recruit: franchises.reduce(
+        Recruit: franchises.reduce(
             (acc, franchise) => acc + (franchise.teams?.find(t => t.tier.name === "Recruit") ? 1 : 0),
             0,
         ),
-        prospect: franchises.reduce(
+        Prospect: franchises.reduce(
             (acc, franchise) => acc + (franchise.teams?.find(t => t.tier.name === "Prospect") ? 1 : 0),
             0,
         ),
-        contender: franchises.reduce(
+        Contender: franchises.reduce(
             (acc, franchise) => acc + (franchise.teams?.find(t => t.tier.name === "Contender") ? 1 : 0),
             0,
         ),
-        challenger: franchises.reduce(
+        Challenger: franchises.reduce(
             (acc, franchise) => acc + (franchise.teams?.find(t => t.tier.name === "Challenger") ? 1 : 0),
             0,
         ),
-        elite: franchises.reduce(
+        Elite: franchises.reduce(
             (acc, franchise) => acc + (franchise.teams?.find(t => t.tier.name === "Elite") ? 1 : 0),
             0,
         ),
-        premier: franchises.reduce(
+        Premier: franchises.reduce(
             (acc, franchise) => acc + (franchise.teams?.find(t => t.tier.name === "Premier") ? 1 : 0),
             0,
         ),
     };
+
+    
 
 
     return (
@@ -82,7 +139,7 @@ export function MediaTools() {
                     .reverse()
                     .map(key => (
                         <div className={`grow cursor-pointer rounded-lg py-2 ${key === selectedTier ? "bg-gray-700" : ""}`} onClick={() => setSelectedTier(key === selectedTier ? null : key)}>
-                            <div className={`font-bold capitalize text-${tiers?.find(item => item.tier.name.toLowerCase() === key)?.tier.color ?? ""}-400`}>
+                            <div className={`font-bold capitalize text-${tiers?.find(item => item.tier.name === key)?.tier.color ?? ""}-400`}>
                                             {key}
                             </div>
 
@@ -97,11 +154,23 @@ export function MediaTools() {
                         <p>Hi {selectedTier} {currentSeason}</p>
             </div>
             
+            
+
             <div className="flex flex-col gap-2">
-                <button onClick={handleFetchMatches} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button onClick={() => refetch()} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Fetch Matches
                 </button>
             </div>
+            
+            
+
+            <div>{isLoading ? <Loading /> : data.map((match: Match) => (
+                <div key={match.id} className="mb-4"> {/* Add margin-bottom to create space between matches */}
+                    <CurrentMatchCards match={match} />
+                </div>
+            ))}</div>
+
+        
 
                         
         </Container>

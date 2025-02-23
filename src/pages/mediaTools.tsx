@@ -30,8 +30,12 @@ const tierCssColors = {
 
 
 export function MediaTools() {
-    const { franchises = [], tiers, loading } = useDataContext();
+    const { franchises = [], tiers, currentSeason, loading } = useDataContext();
     const [selectedTier, setSelectedTier] = React.useState<string | null>(null);
+    const [fetchMatches, setFetchMatches] = React.useState<boolean>(false);
+    const handleFetchMatches = () => {
+        setFetchMatches(true);
+    };
 
     const teamCounts = {
         recruit: franchises.reduce(
@@ -90,9 +94,14 @@ export function MediaTools() {
 
 
             <div className="flex flex-col gap-2">
-                        <p>Hi {selectedTier}</p>
+                        <p>Hi {selectedTier} {currentSeason}</p>
             </div>
-
+            
+            <div className="flex flex-col gap-2">
+                <button onClick={handleFetchMatches} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Fetch Matches
+                </button>
+            </div>
 
                         
         </Container>

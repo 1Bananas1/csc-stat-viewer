@@ -72,7 +72,6 @@ export function MediaTools() {
     };
 
     const getMatches = async (season: number, tier : string) => {
-        await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate a delay
         const response = await fetch("https://core.csconfederation.com/graphql", {
             method: "POST", 
             headers: {
@@ -119,6 +118,22 @@ export function MediaTools() {
         ),
     };
 
+    const currentDate = new Date();
+
+    // Find the closest match date
+    const closestMatchDate = data.reduce((closest, match) => {
+        const matchDate = new Date(match.scheduledDate);
+        return Math.abs(matchDate.getTime() - currentDate.getTime()) < Math.abs(closest.getTime() - currentDate.getTime())
+            ? matchDate
+            : closest;
+    }, new Date(data[0]?.scheduledDate || currentDate));
+
+    // Filter matches to only include those on the closest match date
+    const closestMatches = data.filter(match => {
+        const matchDate = new Date(match.scheduledDate);
+        return matchDate.toDateString() === closestMatchDate.toDateString();
+    });
+
     
 
 
@@ -149,10 +164,7 @@ export function MediaTools() {
                         ))}
             </div>
 
-
-            <div className="flex flex-col gap-2">
-                        <p>Hi {selectedTier} {currentSeason}</p>
-            </div>
+            
             
             
 
@@ -164,7 +176,7 @@ export function MediaTools() {
             
             
 
-            <div>{isLoading ? <Loading /> : data.map((match: Match) => (
+            <div>{isLoading ? <Loading /> : closestMatches.map((match: Match) => (
                 <div key={match.id} className="mb-4"> {/* Add margin-bottom to create space between matches */}
                     <CurrentMatchCards match={match} />
                 </div>

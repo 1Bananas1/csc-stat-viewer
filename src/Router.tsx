@@ -36,6 +36,7 @@ import { Post } from "./pages/articles/post";
 import { CreatePost } from "./pages/articles/create";
 import { Submitted } from "./pages/articles/submitted";
 import { MediaTools } from "./pages/mediaTools";
+import { MatchDetail } from "./pages/MatchDetail";
 
 export function Router() {
 	const [closeNotificationBanner, setCloseNotificationBanner] = useLocalStorage(
@@ -88,6 +89,7 @@ export function Router() {
 		{ path: `/players/:id`, component: () => <Player /> },
 		{ path: `/player-compare`, component: () => <PlayerComparison /> },
 		{ path: '/media-tools', component: () => <MediaTools /> },
+		{ path: `/media-tools/:matchId`, component: () => <MatchDetail /> },
 		{ path: `/leaderboards`, component: () => <LeaderBoards /> },
 		{ path: `/playground`, component: () => <Playground /> },
 		{ path: `/profile`, component: () => <Profile /> },

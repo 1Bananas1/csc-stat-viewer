@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Loading } from "../common/components/loading";
 import { Match } from "../models/upComingMatch";
 import { Team } from "../models/upComingMatch";
+import { useLocation } from "wouter";
 const FranchisesFranchise = React.lazy(() =>import('./franchises/franchise').then(module => ({default: module.FranchisesFranchise})));
 
 const tierCssColors = {
@@ -49,6 +50,11 @@ query Matches($season: Int!, $tier: String) {
 
 
 export function CurrentMatchCards({match, team}: Props) {
+    const [, setLocation] = useLocation();
+    const handleClick = () => {
+        setLocation(`/media-tools/${match.id}`);
+    };
+
     const matchDate = {
         month: new Date(match.scheduledDate).getMonth() + 1,
         day: new Date(match.scheduledDate).getDate(),
@@ -57,7 +63,7 @@ export function CurrentMatchCards({match, team}: Props) {
     const isHomeTeam = match.home.name === team?.name;
 
     return (
-        <div key={match.id}>
+        <div key={match.id} onClick={handleClick} className="cursor-pointer">
             <p>{match.matchDay.number} : {match.home.name} vs {match.away.name}</p>
         </div>
     )
@@ -121,7 +127,7 @@ export function MediaTools() {
     const currentDate = new Date();
 
     // Find the closest match date
-    const closestMatchDate = data.reduce((closest, match) => {
+    const closestMatchDate = data.reduce((closest: Date, match: Match) => {
         const matchDate = new Date(match.scheduledDate);
         return Math.abs(matchDate.getTime() - currentDate.getTime()) < Math.abs(closest.getTime() - currentDate.getTime())
             ? matchDate
@@ -129,7 +135,7 @@ export function MediaTools() {
     }, new Date(data[0]?.scheduledDate || currentDate));
 
     // Filter matches to only include those on the closest match date
-    const closestMatches = data.filter(match => {
+    const closestMatches = data.filter((match: Match) => {
         const matchDate = new Date(match.scheduledDate);
         return matchDate.toDateString() === closestMatchDate.toDateString();
     });
